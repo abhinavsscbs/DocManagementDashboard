@@ -1,0 +1,37 @@
+JSON Structures for Uploads
+
+Accepted EY/PwC JSON
+- Top-level is a list of objects, or a dict with one of: records, rows, data, items (list)
+- Each item should include:
+  - header (string)
+  - page (int or string)
+  - doc_name (string)
+  - chap_number (string)
+  - chapter_name (string)
+  - para (string)
+  - preprocessed (string, optional; computed if missing)
+- Publisher is set by the processor:
+  - EY sets publisher = "EY"
+  - PwC sets publisher = "PwC"
+
+Accepted IFRS JSON (spatial pipeline)
+- Top-level dict with "sections": list
+- Each section:
+  - header: { text: string }
+  - paragraphs: list of objects with:
+    - id (string)
+    - text (string)
+    - pages (list of ints)
+- Processor maps to:
+  - header, page (pages[0]), doc_name, chap_number, chapter_name, para, para_number, preprocessed, publisher="IFRS"
+
+Accepted IFRS JSON (legacy chunks)
+- Top-level list of objects (legacy format)
+- Each item should include:
+  - text_content (string)
+  - section_name (string)
+  - chapter_name (string)
+  - address (string)
+  - page_number or start_page
+- Processor maps to:
+  - header, page, doc_name, chap_number, chapter_name, para, para_number (None), preprocessed, publisher="IFRS"

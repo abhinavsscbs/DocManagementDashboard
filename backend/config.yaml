@@ -1,0 +1,32 @@
+# Configuration for Document Management Dashboard
+# FAISS index directories
+faiss:
+  ifrs_a: "C:/Users/subhadeep.m/OneDrive - Protiviti Member Firm/Work/STC/IFRS/IFRS_A_embed_test"
+  ifrs_b: "C:/Users/subhadeep.m/OneDrive - Protiviti Member Firm/Work/STC/IFRS/IFRS_B_embed_test"
+  ifrs_c: "C:/Users/subhadeep.m/OneDrive - Protiviti Member Firm/Work/STC/IFRS/IFRS_C_embed_test"
+  ey: "C:/Users/subhadeep.m/OneDrive - Protiviti Member Firm/Work/STC/IFRS/Ey_embed_test"
+  pwc: "C:/Users/subhadeep.m/OneDrive - Protiviti Member Firm/Work/STC/IFRS/PwC_embed_test"
+  combined: "C:/Users/subhadeep.m/OneDrive - Protiviti Member Firm/Work/STC/IFRS/Combined_embed_test"
+
+# Document names
+document_names:
+  ey: "International GAAP"
+  pwc: "PwC Manual"
+  ifrs_a: "IFRS A"
+  ifrs_b: "IFRS B"
+  ifrs_c: "IFRS C"
+
+# Processing settings
+processing:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  max_upload_size_mb: 500
+  temp_file_retention_hours: 24
+
+# Server settings
+server:
+  host: "0.0.0.0"
+  port: 5173
+  debug: false
+  cors_origins:
+    - "http://localhost:3000"
+    - "http://localhost:5173"
